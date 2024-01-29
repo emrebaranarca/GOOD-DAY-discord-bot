@@ -13,7 +13,7 @@ const client = new Discord.Client({
 
 const token=process.env.DISCORD_TOKEN
 
-client.login(token)
+
 
 
 client.on('ready', () => {
@@ -26,12 +26,15 @@ client.on('messageCreate',(message)=>{
 })
 
 
-const eventHandler=require("./events/eventHandler")
-eventHandler(client)
+ const eventHandler=require("./events/eventHandler")
+ eventHandler(client)
 
 
 
 
 
+
+
+client.login(token)
 
 
