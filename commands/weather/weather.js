@@ -1,5 +1,3 @@
-require("dotenv").config();
-const Discord=require("discord.js")
 const { SlashCommandBuilder } = require('discord.js');
 const getWeatherData=require("../../utils/weather")
 
@@ -15,18 +13,13 @@ module.exports = {
         ),
     execute: async (interaction) => {
         if (!interaction.isCommand()) return;
-    
-        const { commandName } = interaction;
         let weatherInfo=null;
-        if (commandName === 'weather') {
             try{
                 const city = interaction.options.getString('city');
-                console.log(city)
                 await getWeatherData(city)
                 .then((msg)=>{
                     weatherInfo=msg
-                    console.log(msg)}
-                ).catch(err=>{
+                }).catch(err=>{
                     console.log(err)
                 })
     
@@ -36,6 +29,6 @@ module.exports = {
                 await interaction.reply('Unable to fetch weather information.')
             }
         }
-      },
+      
 	
 };

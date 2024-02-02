@@ -9,5 +9,9 @@ module.exports = {
     if (commandName === 'weather') {
         require("../commands/weather/weather").execute(interaction)
     }
+
+    if(commandName==="popularsongs"){
+        require("../commands/music/getPopularSongs").execute(interaction)
+    }
   },
 };
